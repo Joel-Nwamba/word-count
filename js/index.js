@@ -1,23 +1,24 @@
-const inputField = document.getElementById('inputField');
-const wordCount = document.getElementById('count');
-let count = 0;
-
-inputField.addEventListener('input', function() {
-    countWords();
-})
+const text = document.getElementById("text");
+const wordCount = document.getElementById("count");
+let textValue = [];
 
 
+text.addEventListener("input", countCheck)
 
-function countWords() {
-    let words = inputField.value;
-    let split = words.split(' ');
-    for(let i = 0; i < split.length; i++) {
-        if(split[i] != ' ') {
-            count += 1;
+function countCheck() {
+     textValue = []
+    textValue.push(text.value);
+    let stringJoin = textValue.join(" ");
+    let stringArray =stringJoin.split(" ");
+    let count = 0;
+    for(let i = 0; i < stringArray.length; i++) {
+        // console.log(stringArray[i])
+        if(stringArray[i] != " ") {
+            count++;
         }
     }
-
     wordCount.textContent = count;
 }
 
-countWords();
+
+
